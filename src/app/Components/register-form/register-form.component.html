@@ -1,0 +1,7 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <label for="movie-name">Movie Name: </label>
+  <input type="text" id="movie-name" formControlName="movieName">
+  <label for="actors-name">Actors on the Movie: </label>
+  <input type="text" id="actors-name" formControlName="actorsList">
+  <button>Enviar</button>
+</form>
