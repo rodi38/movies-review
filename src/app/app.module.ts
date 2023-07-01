@@ -11,10 +11,15 @@ import { UserLoginComponent } from './Components/user-login/user-login.component
 import { UserRegisterComponent } from './Components/user-register/user-register.component';
 import { RouteConfig } from './routes';
 import { RedirectRouteComponent } from './Components/redirect-route/redirect-route.component';
+import { MenuDisplayOffDirective } from './Components/menu/menu-display-off.directive';
+import { MenuDisplayOnDirective } from './Components/menu/menu-display-on.directive';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MenuComponent, RegisterFormComponent, MovieCatalogComponent, MovieDetailsComponent, UserLoginComponent, UserRegisterComponent, RedirectRouteComponent],
-  imports: [BrowserModule, ReactiveFormsModule, RouteConfig],
+  declarations: [AppComponent, HeaderComponent, MenuComponent, RegisterFormComponent, MovieCatalogComponent, MovieDetailsComponent, UserLoginComponent, UserRegisterComponent, RedirectRouteComponent, MenuDisplayOffDirective, MenuDisplayOnDirective, ],
+  imports: [BrowserModule, ReactiveFormsModule, RouteConfig, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
 })
