@@ -1,0 +1,7 @@
+
+<div>
+  <button routerLink="/register-movie" routerLinkActive="active" ariaCurrentWhenActive="page">Cadastrar filme</button>
+  <div *ngFor="let movie of movies">
+     <img src="{{movie.poster}}" class="img-fluid rounded-top w-[200px] h-[300px]" alt="" />
+  </div>
+</div>

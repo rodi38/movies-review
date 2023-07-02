@@ -1,0 +1,17 @@
+<ng-container *ngIf="isTrue; else outroComponente">
+   <app-user-login></app-user-login>
+</ng-container>
+
+<ng-template #outroComponente>
+   <section class="flex justify-center items-center">
+      <form>
+         <label for="movie-name">Movie Name:</label>
+         <input type="text" id="movie-name" formControlName="movieName" />
+         <label for="actors-name">Actors on the Movie:</label>
+         <input type="text" id="actors-name" formControlName="actorsList" />
+         <button>Enviar</button>
+      </form>
+
+      <p>{{ responseData | json }}</p>
+   </section>
+</ng-template>

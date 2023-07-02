@@ -1,11 +1,11 @@
 <section class="flex flex-col justify-center items-center bg-[white] w-full h-[100vh] ">
-  <form action="" class="flex flex-col gap-2 items-center justify-center gap-2 w-full h-[80vh]">
-    <input type="text" placeholder="UserName or Email" class="border-2">
-    <input type="text" placeholder="Password " class="border-2">
+  <form action="" [formGroup]="userForm" (ngSubmit)="onLogin(userForm.value)" class="flex flex-col gap-2 items-center justify-center gap-2 w-full h-[80vh]">
+    <input type="text" placeholder="Email" formControlName="email" class="border-2">
+    <input type="text" placeholder="Password " formControlName="password" class="border-2">
     <button class="bg-[green] font-medium rounded text-white p-2">Login</button>
   </form>
   <div class="h-[100%]">
-    <p>Still don't have a account? <a href="#" class="text-[blue]">Register here</a></p>
+    <p>Still don't have a account? <a href="#" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-[blue]">Register here</a></p>
   </div>
 </section>
 

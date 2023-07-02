@@ -18,19 +18,24 @@
    </div>
 </nav> -->
 
-<a class="fixed w-[100px] h-[50px] z-[1] flex justify-start" appMenuDisplayOn> <mat-icon>dashboard</mat-icon></a>
+<a class="fixed w-[100px] h-[50px] z-[1] flex justify-evenly" appMenuDisplayOn><mat-icon>dashboard</mat-icon></a>
 <!-- <div class="flex justify-center items-center[100vh] w-[200px]"> -->
-<nav class="ease-in duration-300 flex flex-col h-[100vh] w-[200px] bg-black justify-between z-10">
+<nav class="ease-in duration-300 flex flex-col h-[100vh] w-[200px] bg-black z-10 justify-around">
    <header class="flex justify-center items-center bg-black h-[10%] text-white">
-      <h1><a href="#">KflexFilm</a></h1>
+      <h1 class="text-3xl"><a class="cursor-pointer">KflexFilm</a></h1>
    </header>
-   <ul class="flex flex-col gap-5 items-center text-white">
-      <li class=""><a href="#" routerLink="/movies" routerLinkActive="active" ariaCurrentWhenActive="page">Todos filmes</a></li>
-      <li class=""><a href="#">Todos filmes</a></li>
-      <li class=""><a href="#">Todos filmes</a></li>
-      <li class=""><a href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
-      <li class=""><a href="#" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a></li>
+   <ul class="flex flex-col gap-5 items-center justify-center text-white">
+      <li class=""><a class="cursor-pointer" routerLink="/movies" routerLinkActive="active" ariaCurrentWhenActive="page">Todos filmes</a></li>
+      <li class=""><a class="cursor-pointer">Pesquisar</a></li>
+      <li *ngIf="!userService.isLogged" class=""><a href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
+      <li *ngIf="!userService.isLogged" class=""><a href="#" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a></li>
    </ul>
+   <div class="flex justify-center gap-3">
+      <a href="#" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-white"><mat-icon>account_circle</mat-icon></a>
+      <a href="#" routerLink="/settings" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-white"><mat-icon>settings</mat-icon></a>
+       <a *ngIf="userService.isLogged" (click)="logout()" class="text-white cursor-pointer" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon><i class="fa-solid fa-right-from-bracket"></i></mat-icon></a>
+
+    </div>
    <button class="text-white" appMenuDisplayOff>Ocultar</button>
 </nav>
 
