@@ -22,4 +22,9 @@ export class UserService {
       const config = { headers: { Authorization: `Bearer ${token}` } };
       return this.http.get(this.apiUrl + "movies", config);
    }
+
+   registerMovie(data: {}, token: string | null) {
+    const config = {headers: {Authorization: `Bearer ${token}`}}
+    return this.http.post(this.apiUrl + "movies", data, config);
+   }
 }

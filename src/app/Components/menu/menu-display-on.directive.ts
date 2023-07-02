@@ -1,24 +1,23 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener } from "@angular/core";
 
 @Directive({
-  selector: '[appMenuDisplayOn]'
+   selector: "[appMenuDisplayOn]",
 })
 export class MenuDisplayOnDirective {
-  // isOpen: boolean = false;
+   // isOpen: boolean = false;
 
-  constructor(private elementRef: ElementRef) { }
+   constructor(private elementRef: ElementRef) {}
 
-  @HostListener('click') onClick() {
-    // if(!this.isOpen) {
-    //   this.isOpen = true;
-    //   this.elementRef.nativeElement.parentElement.style.display= 'none';
-    //   console.log("false")
-    // } else {
-    //   this.isOpen = false;
-    //   console.log("true")
-
-    // }
-    this.elementRef.nativeElement.parentElement.querySelector('nav').style.display = '';
-
-  }
+   @HostListener("click") onClick() {
+      // const navigationElement = this.elementRef.nativeElement.parentElement.querySelector('nav');
+      const navigationElement = this.elementRef.nativeElement.parentElement.querySelector("#navigation");
+      console.log(navigationElement);
+      // this.elementRef.nativeElement.parentElement.querySelector('#navigation').navigationElement.style.height = 'auto'
+      // this.elementRef.nativeElement.parentElement.querySelector('#navigation').navigationElement.style.opacity = '1'
+      // this.elementRef.nativeElement.parentElement.querySelector('nav').style.opacity = '1';
+      navigationElement.style.height = "100vh";
+      navigationElement.style.visibility = "visible";
+      navigationElement.style.opacity = "1";
+      // navigationElement.style.display = '';
+   }
 }

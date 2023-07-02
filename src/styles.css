@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

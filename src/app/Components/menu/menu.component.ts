@@ -10,6 +10,11 @@ export class MenuComponent implements OnInit {
    constructor(public userService: UserService) {
 
    }
+   @Output() toggleWidth = new EventEmitter<void>();
+   
+   toggleHeaderWidth() {
+    this.toggleWidth.emit();
+   }
 
    ngOnInit(): void {
     this.userService.isLogged = localStorage.getItem('isAuthenticated') === 'true';

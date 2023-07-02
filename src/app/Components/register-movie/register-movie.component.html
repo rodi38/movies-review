@@ -1,17 +1,14 @@
-<ng-container *ngIf="isTrue; else outroComponente">
+<!-- <ng-container *ngIf="isTrue; else outroComponente">
    <app-user-login></app-user-login>
-</ng-container>
+</ng-container> -->
 
-<ng-template #outroComponente>
-   <section class="flex justify-center items-center">
-      <form>
-         <label for="movie-name">Movie Name:</label>
-         <input type="text" id="movie-name" formControlName="movieName" />
-         <label for="actors-name">Actors on the Movie:</label>
-         <input type="text" id="actors-name" formControlName="actorsList" />
-         <button>Enviar</button>
-      </form>
-
-      <p>{{ responseData | json }}</p>
-   </section>
-</ng-template>
+<section class="flex justify-center items-center">
+   <form [formGroup]="movieData" (ngSubmit)="onMovieSubmit(movieData.value)">
+      <input type="text" id="movie-name" placeholder="Título do filme" required formControlName="title" />
+      <input type="text" id="actors-name" placeholder="Sinopse do filme" required formControlName="synopsis" />
+      <input type="text" id="actors-name" placeholder="Ano de lançamento" required formControlName="date" />
+      <input type="text" id="actors-name" placeholder="Gênero" required formControlName="genre" />
+      <input type="text" id="actors-name" placeholder="Url da capa do filme" required formControlName="poster" />
+      <button>Enviar</button>
+   </form>
+</section>

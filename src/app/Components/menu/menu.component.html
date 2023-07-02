@@ -17,10 +17,11 @@
       </ul>
    </div>
 </nav> -->
-
-<a class="fixed w-[100px] h-[50px] z-[1] flex justify-evenly" appMenuDisplayOn><mat-icon>dashboard</mat-icon></a>
 <!-- <div class="flex justify-center items-center[100vh] w-[200px]"> -->
-<nav class="ease-in duration-300 flex flex-col h-[100vh] w-[200px] bg-black z-10 justify-around">
+
+
+<a class="absolute pl-4" appMenuDisplayOn (click)="toggleHeaderWidth()"><mat-icon class=" w-[100%] cursor-pointer text-xl hover:text-3xl transition-all duration-500 hover:text-blue-600">dashboard</mat-icon></a>
+<nav id="navigation" class="transition-opacity duration-500 flex flex-col h-[100vh] w-[200px] bg-black z-10 justify-around relative">
    <header class="flex justify-center items-center bg-black h-[10%] text-white">
       <h1 class="text-3xl"><a class="cursor-pointer">KflexFilm</a></h1>
    </header>
@@ -36,7 +37,7 @@
        <a *ngIf="userService.isLogged" (click)="logout()" class="text-white cursor-pointer" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page"><mat-icon><i class="fa-solid fa-right-from-bracket"></i></mat-icon></a>
 
     </div>
-   <button class="text-white" appMenuDisplayOff>Ocultar</button>
+   <button class="text-white transition-all duration-500" appMenuDisplayOff (click)="toggleHeaderWidth()">Ocultar</button>
 </nav>
 
 <!-- </div> -->

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { MovieService } from "src/app/service/movie.service";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 import { UserService } from "src/app/service/user.service";
 
 @Component({
@@ -7,28 +8,32 @@ import { UserService } from "src/app/service/user.service";
    templateUrl: "./register-movie.component.html",
    styleUrls: ["./register-movie.component.css"],
 })
-export class RegisterMovieComponent implements OnInit{
-   isTrue: boolean = true;
-   responseData: any;
+export class RegisterMovieComponent implements OnInit {
+   token: string | null = localStorage.getItem("token");
 
-   constructor(private user: UserService) {}
+   movieData = new FormGroup({
+      title: new FormControl(""),
+      synopsis: new FormControl(""),
+      date: new FormControl(""),
+      genre: new FormControl(""),
+      poster: new FormControl(""),
+   });
+   constructor(private user: UserService, private router: Router) {}
 
+   ngOnInit() {}
 
-   ngOnInit() {
-    // const body = {
-    //   username: "rodi38",
-    //   email:"rodriguin@email.com",
-    //   password:"123456"
-    // }
-    //   this.user.createUser(body);
-    //   // .subscribe(
-      //   success => console.log('success'),
-      //   error => console.log(error),
-      //   () => console.log('request ok')
-      //   // (response) =>{
-      //   // this.responseData = response;
-      //   // console.log(this.responseData);
-      // // }
-      // );
+   onMovieSubmit(data: {}) {
+      this.user.registerMovie(data, this.token).subscribe({
+         next: (res) => {
+          console.log(res);
+          console.log('cadastrado com sucesso.')
+          alert("Cadastro realizado com sucesso.");
+          this.router.navigateByUrl('/dashboard');
+         },
+         error: (error) => {
+            console.log(error);
+         },
+         complete: () => console.info("complete"),
+      });
    }
 }
