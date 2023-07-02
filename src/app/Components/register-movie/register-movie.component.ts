@@ -27,7 +27,8 @@ export class RegisterMovieComponent implements OnInit {
          next: (res) => {
           console.log(res);
           console.log('cadastrado com sucesso.')
-          alert("Cadastro realizado com sucesso.");
+          localStorage.setItem('movieList', JSON.stringify(this.movieData.value))
+          console.log(localStorage.getItem('movieList'));
           this.router.navigateByUrl('/dashboard');
          },
          error: (error) => {

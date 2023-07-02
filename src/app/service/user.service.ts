@@ -8,6 +8,7 @@ import { take } from "rxjs";
 export class UserService {
    apiUrl = "https://filmsreviewer-api.onrender.com/"; // Substitua pela URL da API desejada
    isLogged?: boolean;
+   movieList: any;
 
    constructor(private http: HttpClient) {}
 
@@ -25,6 +26,6 @@ export class UserService {
 
    registerMovie(data: {}, token: string | null) {
     const config = {headers: {Authorization: `Bearer ${token}`}}
-    return this.http.post(this.apiUrl + "movies", data, config);
+    return this.http.post(this.apiUrl + "movies", data, config).pipe(take(1));
    }
 }

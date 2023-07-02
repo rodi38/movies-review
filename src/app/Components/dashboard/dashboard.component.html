@@ -1,9 +1,9 @@
-<div class="">
+<div class="flex flex-wrap w-full">
    <a routerLink="/register-movie" routerLinkActive="active" ariaCurrentWhenActive="page">Cadastrar filme</a>
-   <div *ngFor="let movie of movies" class="flex justify-start  border-2 ml-10 h-[100vh]">
-      <div class="flex flex-col border-2 w-[25%]">
-         <h1 class="self-center text-3xl font-bold">{{ movie.title }}</h1>
-         <img src="{{ movie.poster }}" class="img-fluid rounded-top w-[100%]" alt="" />
+   <div *ngFor="let movie of movies" class="flex flex-row w-[300px] h-[450px] ml-10 ">
+      <div class="flex flex-col  text-white drop-shadow-2xl">
+         <img src="{{ movie.poster }}" class="cover h-[55%]" alt="" />
+         <h1 class="self-center text-2xl font-bold">{{ movie.title }}</h1>
          <p class="overflow-clip p-1">{{ movie.synopsis }}</p>
          <p class="p-1">Ano de lançamento: {{movie.date.substring(0, 4)}}</p>
          <p class="p-1">Gêneros: {{movie.genre}}</p>

@@ -24,9 +24,11 @@ export class DashboardComponent implements OnInit{
     if(this.token !== null) {
       this.user.getUserMovies(this.token).subscribe({
         next: (res) => {
+          this.user.movieList = this.movies;
           this.movies = res;
           console.log(res);
           console.log(this.movies);
+
         },
         error: (error) => console.log(error),
         complete: () => console.info('complete')
