@@ -17,7 +17,9 @@ export class UserLoginComponent implements OnInit {
       password: new FormControl(""),
    });
 
-   ngOnInit(): void {}
+   ngOnInit(): void {
+
+   }
 
    onLogin(data: {}) {
       this.user.login(data).subscribe({
@@ -29,6 +31,7 @@ export class UserLoginComponent implements OnInit {
             console.log(localStorage.getItem("token"));
             localStorage.setItem("isAuthenticated", 'true');
             this.user.isLogged = localStorage.getItem('isAuthenticated') ===  'true';
+            localStorage.setItem('userData', JSON.stringify(res));
             this.router.navigateByUrl('/dashboard');
          },
          error: (error) => {

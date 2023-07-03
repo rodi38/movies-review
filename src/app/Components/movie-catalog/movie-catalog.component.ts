@@ -8,13 +8,12 @@ import { UserService } from "src/app/service/user.service";
 })
 export class MovieCatalogComponent implements OnInit {
    movies: any;
-
-   constructor(public userData: UserService) {}
+   
+   constructor() {}
    ngOnInit() {
+    this.movies = JSON.parse(localStorage.getItem('movieData') || '{}');
       if (localStorage.getItem("token")) {
-         this.movies = this.userData.movieList;
          console.log(this.movies);
-         console.log(this.userData.movieList);
       } else{
         console.log("oxe")
       }
