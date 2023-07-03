@@ -11,7 +11,7 @@ export class MovieDetailsComponent implements OnInit{
   movie: any;
   constructor(private userData: UserService, private movieService: MovieService){}
   ngOnInit(): void {
-
-    // this.movie = this.movieService.getMovieById(JSON.parse(localStorage.getItem('movieData') || '{}'), this.userData.getUserId())
+    this.movie = JSON.parse(localStorage.getItem('selectedMovie') || '{}');
   }
+
 }

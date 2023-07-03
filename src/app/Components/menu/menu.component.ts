@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
 
    }
    @Output() toggleWidth = new EventEmitter<void>();
-   
+
    toggleHeaderWidth() {
     this.toggleWidth.emit();
    }
@@ -23,6 +23,7 @@ export class MenuComponent implements OnInit {
    logout(): void {
     localStorage.clear();
     this.userService.isLogged = false;
+    window.alert("Deslogado com sucesso!");
    }
 
 

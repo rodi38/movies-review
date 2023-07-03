@@ -6,7 +6,7 @@ import { take } from "rxjs";
    providedIn: "root",
 })
 export class UserService implements OnInit {
-   apiUrl = "https://filmsreviewer-api.onrender.com/"; // Substitua pela URL da API desejada
+   apiUrl = "https://filmsreviewer-api.onrender.com/";
    isLogged?: boolean;
    movieList: any;
    userData: {} = {};
@@ -16,7 +16,6 @@ export class UserService implements OnInit {
 
 
    ngOnInit(): void {
-
    }
 
    get getUserData(): {} {

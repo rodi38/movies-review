@@ -31,5 +31,7 @@ export class UserRegisterComponent implements OnInit {
     },
     error => console.log(error)
     )
+
+    window.alert("Usuário cadastrado com sucesso!")
   }
 }

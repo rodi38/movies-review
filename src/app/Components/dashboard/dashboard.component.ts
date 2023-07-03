@@ -13,6 +13,11 @@ export class DashboardComponent implements OnInit {
    userData: any;
    constructor(public user: UserService, private router: Router) {}
 
+   onClickT(id: number){
+    const movie = this.movies.filter((movie: any) => movie.id === id);
+    localStorage.setItem('selectedMovie', JSON.stringify(movie));
+   }
+
    ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('userData') || '{}');
       if (this.token) {

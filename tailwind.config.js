@@ -12,6 +12,11 @@ module.exports = {
     // "./src/app/components/dashboard/dashboard.component.html",
   ],
   theme: {
+    fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+        'bebas': ['Bebas Neue', 'sans-serif', 'Plus Jakarta Sans', 'sans-serif'],
+
+    },
     extend: {},
   },
   plugins: [],
