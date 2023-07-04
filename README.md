@@ -23,3 +23,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## MReviewer
+
+O projeto foi feito completamente com angular + typescript, para estilização utilizei Tailwind.
+
+Para entender como está o andamento do projeto basta clicar na aba <code>Projects</code> como mostra na imagem abaixo, dentro terá um ToDo simples do progresso. ![image](https://github.com/rodi38/movies-review/assets/61064085/ba211277-08e3-4b27-8698-cf4c808b0516)
+
