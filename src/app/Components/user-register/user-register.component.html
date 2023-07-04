@@ -1,12 +1,10 @@
-<div class="flex flex-col justify-center items-center text-white w-full h-[100%]">
+<div class="flex flex-col justify-center items-center text-black w-full h-[100%] font-roboto">
   <form action="" [formGroup]="userForm" (ngSubmit)="getUserFormData(userForm.value)" class="flex items-center justify-center flex-col gap-2 h-[100vh]">
-    <input type="text" placeholder="UserName" class=" text-black required:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-    invalid:border-pink-500 invalid:text-pink-600
-    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" formControlName="username" class="border-2">
-    <input type="text" placeholder="Email" formControlName="email" class="border-2 border-[blue]">
-    <input type="text" placeholder="Profile picture url" formControlName="image" class="border-2">
-    <input type="text" placeholder="Password " formControlName="password" class="border-2">
-    <button class="bg-[green] font-medium rounded text-white p-2">Cadastrar</button>
+    <input type="text" placeholder="UserName" class="" formControlName="username" class="border-2 rounded p-2 bg-gray-500">
+    <input type="text" placeholder="Email" formControlName="email" class="border-2 rounded p-2 bg-gray-500">
+    <input type="text" placeholder="Profile picture url" formControlName="image" class="border-2 rounded p-2 bg-gray-500">
+    <input type="text" placeholder="Password " formControlName="password" class="border-2 rounded p-2 bg-gray-500">
+    <button class="bg-[#3c5c5a] font-medium rounded text-white p-2 pl-5 pr-5 transition-all duration-500 hover:bg-[#20302f]">Cadastrar</button>
   </form>
 </div>
 
