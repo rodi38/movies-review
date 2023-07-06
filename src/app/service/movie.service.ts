@@ -30,13 +30,24 @@ export class MovieService {
    //   } )
    // }
 
-   getMovieById(movieData: Movie[], id: number) {
-      return movieData.filter((movie) => movie.id === id);
+   getMovieById( id: number) {
+     const config = { headers: { Authorization: `Bearer ${token}` } };
+      return this.http.get(this.API_URL + `movies/${id}`).pipe(take(1)).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (error) => {
+          console.log(error)
+        },
+        complete: () =>{
+          console.log('sucesso meu chapa');
+        }
+      });
    }
 
    getMoviesFromApi(token: string): any {
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-      return this.http.get(this.API_URL + "movies", config).pipe(take(1)).subscribe({
+      
+      return this.http.get(this.API_URL + "movies").pipe(take(1)).subscribe({
         next: (res) => {
           console.log(res);
         },
