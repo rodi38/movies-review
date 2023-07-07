@@ -28,10 +28,12 @@ export class UserRegisterComponent implements OnInit {
     this.userData.createUser(data).subscribe(
       (res) =>{
       console.warn(res);
+      window.alert("Usuário cadastrado com sucesso!")
     },
-    error => console.log(error)
+    error => {
+      window.alert("Algo deu errado, confira os dados inseridos!")
+      console.log(error)
+    }
     )
-
-    window.alert("Usuário cadastrado com sucesso!")
   }
 }
