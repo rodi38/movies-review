@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { MovieService } from "src/app/service/movie.service";
 import { UserService } from "src/app/service/user.service";
+import { take } from "rxjs";
+
 
 @Component({
    selector: "app-dashboard",
@@ -11,20 +14,22 @@ export class DashboardComponent implements OnInit {
    token: string | null = localStorage.getItem("token");
    movies: any;
    userData: any;
-   constructor(public user: UserService, private router: Router) {}
+   constructor(public user: UserService,public movie: MovieService, private router: Router) {}
 
    onClickT(id: number){
-    const movie = this.movies.filter((movie: any) => movie.id === id);
-    localStorage.setItem('selectedMovie', JSON.stringify(movie));
+      if(this.token !== null){
+         const movie = this.movie.getMovieById(id, this.token);
+         localStorage.setItem('selectedMovie', JSON.stringify(movie));
+      }
    }
 
    ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('userData') || '{}');
-      if (this.token) {
-         this.getUserMovies();
+      /* if (this.token) {
+         this.getMovies();
       } else {
          this.router.navigateByUrl("/login");
-      }
+      } */
    }
 
    onLogout() {
@@ -33,17 +38,15 @@ export class DashboardComponent implements OnInit {
     this.user.isLogged = false;
 
    }
-   getUserMovies() {
-      if (this.token !== null) {
-         this.user.getUserMovies(this.token).subscribe({
-            next: (res) => {
-               this.user.movieList = this.movies;
-               this.movies = res;
-               localStorage.setItem('movieData', JSON.stringify(res));
-            },
-            error: (error) => console.log(error),
-            complete: () => console.info("complete"),
-         });
-      }
-   }
+   /* getMovies() {
+      this.movie.getMoviesFromApi().subscribe({
+         next: (res:Response) => {
+            this.user.movieList = this.movies;
+            this.movies = res;
+            localStorage.setItem('movieData', JSON.stringify(res));
+         },
+         error: (error:Error) => console.log(error),
+         complete: () => console.info("complete"),
+      });
+   } */
 }

@@ -2,13 +2,13 @@
    <app-user-login></app-user-login>
 </ng-container> -->
 
-<section class="flex justify-center items-center">
-   <form [formGroup]="movieData" (ngSubmit)="onMovieSubmit(movieData.value)">
+<section class="flex flex-col justify-center items-center w-[100%] h-[100%]">
+   <form class="flex gap-[20px] [&>*]:w-[80%] [&>*]:p-3 [&>input]:bg-gray-500 flex-col justify-center items-center w-[80%]" [formGroup]="movieData" (ngSubmit)="onMovieSubmit(movieData.value)">
       <input type="text" id="movie-name" placeholder="Título do filme" required formControlName="title" />
       <input type="text" id="actors-name" placeholder="Sinopse do filme" required formControlName="synopsis" />
       <input type="text" id="actors-name" placeholder="Ano de lançamento" required formControlName="date" />
       <input type="text" id="actors-name" placeholder="Gênero" required formControlName="genre" />
       <input type="text" id="actors-name" placeholder="Url da capa do filme" required formControlName="poster" />
-      <button>Enviar</button>
+      <button class="bg-[blue] text-[white]">Enviar</button>
    </form>
 </section>
