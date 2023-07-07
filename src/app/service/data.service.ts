@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage-service.service';
 import { MovieService } from './movie.service';
 
@@ -26,3 +26,4 @@ export class DataService {
     this.localStorageService.setItem('movieData', updatedList);
   }
 }
+ */
